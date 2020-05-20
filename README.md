@@ -1,33 +1,17 @@
-# aframe-webpack
+# MathVR
 
-Empty project.
+Using VR to teach mathematics.
 
-## Building and running on localhost
+## Running on localhost
 
 First install dependencies:
 
-```sh
+```
 npm install
 ```
 
-To create a production build:
+To run locally:
 
-```sh
-npm run build-prod
 ```
-
-To create a development build:
-
-```sh
-npm run build-dev
+npm start
 ```
-
-## Running
-
-```sh
-node dist/bundle.js
-```
-
-## Credits
-
-Made with [createapp.dev](https://createapp.dev/)

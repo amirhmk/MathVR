@@ -13,9 +13,12 @@
     "start": "webpack-dev-server --open --inline"
   },
   "dependencies": {
+    "aframe": "^1.0.4",
+    "aframe-environment-component": "^2.0.0",
     "aframe-super-hot-html-loader": "^2.1.0",
     "aframe-super-hot-loader": "^1.7.0",
     "diff-dom": "^4.1.6",
+    "html-require-loader": "^1.0.1",
     "lodash": "^4.17.15",
     "moment": "^2.25.3"
   },
