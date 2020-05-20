@@ -12,6 +12,8 @@
   "extends": ["eslint:recommended", "plugin:prettier/recommended"],
   "globals": {
     "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
+    "SharedArrayBuffer": "readonly",
+    "THREE": "readonly",
+    "AFRAME": "readonly"
   }
 }
