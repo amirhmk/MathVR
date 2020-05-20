@@ -7,3 +7,4 @@ import "./scene.html";
 // componenents
 import "./components/title";
 import "./components/welcomeScreen.js";
+import "./components/text";

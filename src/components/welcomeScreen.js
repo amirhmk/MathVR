@@ -23,6 +23,17 @@ AFRAME.registerComponent("welcome", {
       y: 310,
       z: 0,
     });
+    const textEl = document.createElement("a-entity");
+    textEl.setAttribute("custom-text", {
+      value: "Hello world",
+      pos_x: -1,
+      pos_y: 0.92245,
+      pos_z: -1,
+      rot_x: 0,
+      rot_y: 45,
+      rot_z: 0,
+    });
+    this.el.appendChild(textEl);
   },
   remove: function () {
     console.log("bye");
