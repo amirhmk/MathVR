@@ -1,8 +1,8 @@
 // Packages
-require("aframe-environment-component");
+import "aframe-environment-component";
 
 // scene
-require("./scene.html");
+import "./scene.html";
 
 // componenents
-require("./components/title");
+import "./components/title";
