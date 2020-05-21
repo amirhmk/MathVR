@@ -70,7 +70,7 @@ const config = {
   },
   plugins: [
     new LodashModuleReplacementPlugin(),
-    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
+    new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /en/),
   ],
 };
 
