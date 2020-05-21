@@ -13,7 +13,10 @@
     "clean": "rm dist/bundle.js",
     "build-dev": "webpack -d --mode development",
     "build-prod": "webpack -p --mode production",
-    "start": "webpack-dev-server --open --inline"
+    "start": "webpack-dev-server --open --inline",
+    "lint:js": "eslint --fix",
+    "lint:html": "tidy -config tidy_config.txt",
+    "lint": "npm run lint:js src/**/*.js && npm run lint:html src/*.html"
   },
   "dependencies": {
     "aframe": "^1.0.4",
@@ -41,5 +44,18 @@
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint:js"
+    ],
+    "*.html": [
+      "prettier --write"
+    ]
   }
 }
