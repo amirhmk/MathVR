@@ -13,6 +13,7 @@
     "clean": "rm dist/bundle.js",
     "build-dev": "webpack -d --mode development",
     "build": "webpack -p --mode production",
+    "start:https": "webpack-dev-server --https --open --inline",
     "start": "webpack-dev-server --open --inline",
     "lint:js": "eslint --fix",
     "lint:html": "tidy -config tidy_config.txt",
