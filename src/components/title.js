@@ -24,5 +24,13 @@ AFRAME.registerComponent("title", {
       y: 5,
       z: -8,
     });
+    const el = this.el;
+    const sceneEl = el.sceneEl;
+    sceneEl.addEventListener("remove", function (event) {
+      sceneEl.remove(el);
+    });
+  },
+  remove: function () {
+    console.log("what the fuck");
   },
 });

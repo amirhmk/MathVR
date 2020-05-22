@@ -38,27 +38,40 @@ AFRAME.registerComponent("custom-text", {
     },
   },
   init: function () {
-    this.el.setAttribute("geometry", {
+    const el = this.el;
+    el.setAttribute("geometry", {
       primitive: "plane",
     });
-    this.el.setAttribute("text", {
+    el.setAttribute("text", {
       value: this.data.value,
       width: this.data.width,
       height: this.data.height,
       align: "center",
     });
-    this.el.setAttribute("position", {
+    el.setAttribute("position", {
       x: this.data.pos_x,
       y: this.data.pos_y,
       c: this.data.pos_z,
     });
-    this.el.setAttribute("rotation", {
+    el.setAttribute("rotation", {
       x: this.data.rot_x,
       y: this.data.rot_y,
       c: this.data.rot_z,
     });
-    this.el.setAttribute("material", {
+    el.setAttribute("material", {
       visible: false,
+    });
+    el.setAttribute("class", "clickable");
+    // Event listener for click
+    el.addEventListener("click", function (event) {
+      el.emit("remove", { text: "hellowordl" });
+    });
+    // event listener for mouse-over
+    el.addEventListener("mouseenter", function (event) {
+      el.setAttribute("text", { color: "blue" });
+    });
+    el.addEventListener("mouseleave", function (e) {
+      el.setAttribute("text", { color: "white" });
     });
   },
   remove: function () {
