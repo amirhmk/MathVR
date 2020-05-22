@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title></title>
+  </head>
 
-<head>
-  <title></title>
-</head>
-
-<body>
-  <a-scene>
-    <!-- Title -->
-    <a-entity title></a-entity>
-    <!-- Moutain -->
-    <a-entity
-      environment="preset: forest; seed: 3; groundColor: #9BE31C; groundColor2: #9BE31C; dressingColor: #a78170; grid: 1x1; gridColor: #ccc#9BE31C"
-      position="0 -2 0" visible="">
-    </a-entity>
-    <!-- Menu -->
-    <a-entity welcome></a-entity>
-    <!-- Cursor -->
-    <a-entity camera look-controls position='0 1.8 0'>
-      <a-entity cursor='rayOrigin:mouse; fuse:true;' raycaster='objects:.clickable'></a-entity>
-      <a-entity laser-controls raycaster="objects: .links; far: 5" line="color: orange; opacity: 0.5"></a-entity>
-    </a-entity camera look-controls>
-  </a-scene>
-</body>
-
+  <body>
+    <a-scene>
+      <!-- Title -->
+      <a-entity title></a-entity>
+      <!-- Moutain -->
+      <a-entity
+        environment="preset: forest; seed: 3; groundColor: #9BE31C; groundColor2: #9BE31C; dressingColor: #a78170; grid: 1x1; gridColor: #ccc#9BE31C"
+        position="0 -2 0"
+        visible=""
+      >
+      </a-entity>
+      <!-- Menu -->
+      <a-entity welcome></a-entity>
+      <!-- Cursor -->
+      <a-entity camera look-controls position="0 1.8 0">
+        <a-entity
+          cursor="rayOrigin:mouse; fuse:true;"
+          raycaster="objects: .clickable"
+        ></a-entity>
+      </a-entity>
+      <a-entity
+        laser-controls
+        raycaster="objects: .clickable;"
+        line="opacity: 1"
+      ></a-entity>
+    </a-scene>
+  </body>
 </html>
 <!-- 
  -->

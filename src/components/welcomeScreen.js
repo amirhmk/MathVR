@@ -25,7 +25,7 @@ AFRAME.registerComponent("welcome", {
     });
     const textEl = document.createElement("a-entity");
     textEl.setAttribute("custom-text", {
-      value: "Hello world",
+      value: "Probability",
       pos_x: -1,
       pos_y: 0.92245,
       pos_z: -1,
