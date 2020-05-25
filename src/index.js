@@ -8,3 +8,6 @@ import "./scene.html";
 import "./components/title";
 import "./components/welcomeScreen.js";
 import "./components/text";
+import "./components/button";
+import "./components/buttonShader";
+import "./components/roundCornerBox";

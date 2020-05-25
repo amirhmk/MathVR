@@ -1,3 +1,5 @@
+import blackBoard from "../assets/mathboard.jpg";
+
 AFRAME.registerComponent("welcome", {
   init: function () {
     this.el.setAttribute("geometry", {
@@ -5,13 +7,13 @@ AFRAME.registerComponent("welcome", {
       openEnded: true,
       thetaLength: 100,
       thetaStart: 180,
-      radius: 5,
-      height: 5,
+      radius: 10,
+      height: 10,
     });
     this.el.setAttribute("material", {
-      metalness: 0.5,
       side: "double",
-      color: "green",
+      shader: "flat",
+      src: blackBoard,
     });
     this.el.setAttribute("position", {
       x: 0,
@@ -20,21 +22,32 @@ AFRAME.registerComponent("welcome", {
     });
     this.el.setAttribute("rotation", {
       x: 0,
+      y: 0,
+      z: 180,
+    });
+    this.el.setAttribute("rotation", {
+      x: 0,
       y: 310,
       z: 0,
     });
-    const textEl = document.createElement("a-entity");
-    textEl.setAttribute("custom-text", {
-      value: "Probability",
-      pos_x: -1,
-      pos_y: 0.92245,
-      pos_z: -1,
-      rot_x: 0,
-      rot_y: 45,
-      rot_z: 0,
+    const button = document.createElement("a-entity");
+    button.setAttribute("button", { value: "Probability" });
+    button.setAttribute("rotation", {
+      x: 0,
+      y: 45,
+      z: 0,
     });
-    this.el.appendChild(textEl);
+    button.setAttribute("class", "clickable");
+    button.setAttribute("id", "probability");
+    button.addEventListener("mouseenter", function (event) {
+      button.setAttribute("geometry", { width: 1.6, height: 0.6 });
+    });
+    button.addEventListener("mouseleave", function (event) {
+      button.setAttribute("geometry", { width: 1.5, height: 0.5 });
+    });
+    this.el.appendChild(button);
   },
+
   remove: function () {
     console.log("bye");
   },
