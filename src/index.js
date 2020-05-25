@@ -11,3 +11,4 @@ import "./components/text";
 import "./components/button";
 import "./components/buttonShader";
 import "./components/roundCornerBox";
+import "./components/floatingPoints";
