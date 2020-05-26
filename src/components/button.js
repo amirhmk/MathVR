@@ -24,5 +24,7 @@ AFRAME.registerComponent("button", {
       align: "center",
       width: this.data.width,
     });
+    el.setAttribute("scale", { x: 1, y: 1, z: 1 });
+
   },
 });

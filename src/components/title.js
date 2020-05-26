@@ -2,10 +2,6 @@ const loader = new THREE.FontLoader();
 const fontJSON = require("../assets/Acme_Regular.json");
 const font = loader.parse(fontJSON);
 AFRAME.registerComponent("title", {
-  schema: {
-    opacity: { type: "number", default: 1 },
-  },
-
   init: function () {
     const opacity = this.data.opacity;
     const geometry = new THREE.TextGeometry("Welcome to MathVR", {
@@ -17,8 +13,6 @@ AFRAME.registerComponent("title", {
       bevelSize: 8,
     });
     const material = new THREE.MeshStandardMaterial({
-      opacity: opacity,
-      transparent: true,
       color: 0xf7cb0d,
       metalness: 0.1,
       roughness: 0.2,
@@ -30,6 +24,7 @@ AFRAME.registerComponent("title", {
       y: 6,
       z: -8,
     });
+    this.el.setAttribute("scale", { x: 1, y: 1, z: 1 });
   },
   remove: function () {
     console.log("what the fuck");

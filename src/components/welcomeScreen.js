@@ -10,6 +10,8 @@ AFRAME.registerComponent("welcome", {
       radius: 10,
       height: 10,
     });
+    this.el.setAttribute("scale", { x: 1, y: 1, z: 1 });
+
     this.el.setAttribute("material", {
       side: "double",
       shader: "flat",
@@ -42,11 +44,13 @@ AFRAME.registerComponent("welcome", {
     button.addEventListener("mouseenter", function (event) {
       button.setAttribute("geometry", { width: 1.6, height: 0.6 });
     });
+    button.setAttribute("scale", { x: 1, y: 1, z: 1 });
     button.addEventListener("mouseleave", function (event) {
       button.setAttribute("geometry", { width: 1.5, height: 0.5 });
     });
+
     button.addEventListener("click", function (event) {
-      button.emit("fadeaway", { data: "hello" }, true);
+      button.emit("fadeaway", { className: "welcome-page" }, true);
     });
     this.el.appendChild(button);
   },

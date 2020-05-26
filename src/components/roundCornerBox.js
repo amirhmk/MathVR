@@ -27,6 +27,7 @@ AFRAME.registerComponent("roundbox", {
       y: 1,
       z: -3,
     });
+    el.setAttribute("scale", { x: 1, y: 1, z: 1 });
   },
   tick: function () {
     if (this.borderRadius <= 0) {
