@@ -8,7 +8,6 @@ const config = {
     path: path.resolve(__dirname, "docs"),
     filename: "bundle.js",
   },
-
   devServer: {
     contentBase: path.join(__dirname, "docs"),
     compress: true,
@@ -56,15 +55,8 @@ const config = {
         use: "file-loader",
       },
       {
-        test: /\.png$/,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              mimetype: "image/png",
-            },
-          },
-        ],
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ["file-loader"],
       },
     ],
   },
