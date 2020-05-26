@@ -4,9 +4,7 @@ AFRAME.registerComponent("fadeaway", {
     const el = this.el;
     sceneEl.addEventListener("fadeaway", function (event) {
       const elements = sceneEl.querySelectorAll(`.${event.detail.className}`);
-      console.log(elements);
       for (let element of elements) {
-        console.log(elements);
         element.setAttribute("animation", {
           property: "scale",
           to: "0 0 0",

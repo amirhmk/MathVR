@@ -26,39 +26,4 @@ AFRAME.registerComponent("roundbox", {
       z: -3,
     });
   },
-  // tick: function () {
-  //   this.el.removeObject3D("boxybox");
-  //   if (this.borderRadius <= 0) {
-  //     this.ascend = true;
-  //     this.borderRadius += 0.01;
-  //     const myBox = new THREE.Mesh(
-  //       new RoundedBoxGeometry(1, 1, 1, this.borderRadius, 50),
-  //       this.material
-  //     );
-  //     this.el.setObject3D("boxybox", myBox);
-  //   } else if (this.borderRadius > 0 && this.borderRadius < 1 && this.ascend) {
-  //     this.borderRadius += 0.01;
-  //     const myBox = new THREE.Mesh(
-  //       new RoundedBoxGeometry(1, 1, 1, this.borderRadius, 50),
-  //       this.material
-  //     );
-  //     this.el.setObject3D("boxybox", myBox);
-  //   } else if (this.borderRadius >= 1) {
-  //     this.ascend = false;
-  //     this.borderRadius -= 0.01;
-
-  //     const myBox = new THREE.Mesh(
-  //       new RoundedBoxGeometry(1, 1, 1, this.borderRadius, 50),
-  //       this.material
-  //     );
-  //     this.el.setObject3D("boxybox", myBox);
-  //   } else if (this.borderRadius > 0 && this.borderRadius < 1 && !this.ascend) {
-  //     this.borderRadius -= 0.01;
-  //     const myBox = new THREE.Mesh(
-  //       new RoundedBoxGeometry(1, 1, 1, this.borderRadius, 50),
-  //       this.material
-  //     );
-  //     this.el.setObject3D("boxybox", myBox);
-  //   }
-  // },
 });
