@@ -45,6 +45,9 @@ AFRAME.registerComponent("welcome", {
     button.addEventListener("mouseleave", function (event) {
       button.setAttribute("geometry", { width: 1.5, height: 0.5 });
     });
+    button.addEventListener("click", function (event) {
+      button.emit("fadeaway", { data: "hello" }, true);
+    });
     this.el.appendChild(button);
   },
 
