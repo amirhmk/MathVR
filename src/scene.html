@@ -18,6 +18,19 @@
       <!-- Menu -->
       <a-entity welcome></a-entity>
       <!-- Cursor -->
+      <!-- Place holder Ground for Physics engine -->
+      <a-box
+        id="one"
+        position="2 -2.5 -3"
+        color="blue"
+        static-body
+        width="1000"
+        height="1"
+        depth="1000"
+        visible="false"
+      ></a-box>
+      <a-entity probability></a-entity>
+      <a-entity id="mouseCursor" cursor="rayOrigin: mouse"></a-entity>
       <a-entity camera look-controls position="0 1.8 0">
         <a-entity
           cursor="rayOrigin:mouse; fuse:true;"
@@ -28,9 +41,8 @@
         laser-controls
         raycaster="objects: .clickable;"
         line="opacity: 1"
-      ></a-entity>
+      >
+      </a-entity>
     </a-scene>
   </body>
 </html>
-<!-- 
- -->
