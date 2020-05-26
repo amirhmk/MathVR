@@ -10,8 +10,6 @@ AFRAME.registerComponent("welcome", {
       radius: 10,
       height: 10,
     });
-    this.el.setAttribute("scale", { x: 1, y: 1, z: 1 });
-
     this.el.setAttribute("material", {
       side: "double",
       shader: "flat",
@@ -21,11 +19,6 @@ AFRAME.registerComponent("welcome", {
       x: 0,
       y: 2,
       z: -5,
-    });
-    this.el.setAttribute("rotation", {
-      x: 0,
-      y: 0,
-      z: 180,
     });
     this.el.setAttribute("rotation", {
       x: 0,
@@ -41,15 +34,14 @@ AFRAME.registerComponent("welcome", {
     });
     button.setAttribute("class", "clickable");
     button.setAttribute("id", "probability");
-    button.addEventListener("mouseenter", function (event) {
+    button.addEventListener("mouseenter", function () {
       button.setAttribute("geometry", { width: 1.6, height: 0.6 });
     });
-    button.setAttribute("scale", { x: 1, y: 1, z: 1 });
-    button.addEventListener("mouseleave", function (event) {
+    button.addEventListener("mouseleave", function () {
       button.setAttribute("geometry", { width: 1.5, height: 0.5 });
     });
 
-    button.addEventListener("click", function (event) {
+    button.addEventListener("click", function () {
       button.emit("fadeaway", { className: "welcome-page" }, true);
     });
     this.el.appendChild(button);

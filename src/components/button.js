@@ -6,9 +6,10 @@ AFRAME.registerComponent("button", {
   },
   init: function () {
     const el = this.el;
+    const { height, value, width } = this.data;
     el.setAttribute("geometry", {
       primitive: "plane",
-      height: this.data.height,
+      height: height,
       width: 1.5,
     });
 
@@ -20,11 +21,9 @@ AFRAME.registerComponent("button", {
     });
 
     el.setAttribute("text", {
-      value: this.data.value,
+      value: value,
       align: "center",
-      width: this.data.width,
+      width: width,
     });
-    el.setAttribute("scale", { x: 1, y: 1, z: 1 });
-
   },
 });

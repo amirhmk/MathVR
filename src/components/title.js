@@ -3,7 +3,6 @@ const fontJSON = require("../assets/Acme_Regular.json");
 const font = loader.parse(fontJSON);
 AFRAME.registerComponent("title", {
   init: function () {
-    const opacity = this.data.opacity;
     const geometry = new THREE.TextGeometry("Welcome to MathVR", {
       font: font,
       size: 1,
@@ -24,7 +23,6 @@ AFRAME.registerComponent("title", {
       y: 6,
       z: -8,
     });
-    this.el.setAttribute("scale", { x: 1, y: 1, z: 1 });
   },
   remove: function () {
     console.log("what the fuck");

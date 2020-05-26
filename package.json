@@ -16,8 +16,8 @@
     "start:https": "webpack-dev-server --https --open --inline",
     "start": "webpack-dev-server --open --inline",
     "lint:js": "eslint --fix",
-    "lint:html": "tidy -config tidy_config.txt",
-    "lint": "npm run lint:js src/**/*.js && npm run lint:html src/*.html"
+    "lint:html": "tidy -config tidy_config.txt docs/*.html src/*.html",
+    "lint": "npm run lint:js src/**/*.js"
   },
   "dependencies": {
     "aframe": "^1.0.4",
@@ -27,7 +27,6 @@
     "diff-dom": "^4.1.6",
     "html-require-loader": "^1.0.1",
     "lodash": "^4.17.15",
-    "moment": "^2.25.3",
     "three-rounded-box": "^0.1.1"
   },
   "devDependencies": {
@@ -58,9 +57,6 @@
   "lint-staged": {
     "*.js": [
       "npm run lint:js"
-    ],
-    "*.html": [
-      "prettier --write"
     ]
   }
 }
