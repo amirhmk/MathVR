@@ -26,6 +26,7 @@ AFRAME.registerComponent("title", {
     });
     const el = this.el;
     const sceneEl = el.sceneEl;
+    // eslint-disable-next-line no-unused-vars
     sceneEl.addEventListener("remove", function (event) {
       sceneEl.remove(el);
     });

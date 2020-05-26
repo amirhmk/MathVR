@@ -7,6 +7,7 @@ import "./components/welcomeScreen.js";
 import "./components/text";
 import "./components/probability";
 import "./components/probability/dice";
+import "./components/card";
 
 // scene
 import "./scene.html";
