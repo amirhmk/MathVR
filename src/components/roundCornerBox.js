@@ -16,7 +16,7 @@ AFRAME.registerComponent("roundbox", {
       roughness: 0.2,
     });
     const myBox = new THREE.Mesh(
-      new RoundedBoxGeometry(1, 1, 1, this.borderRadius, 50),
+      new RoundedBoxGeometry(1, 1, 1, this.borderRadius, 10),
       this.material
     );
     el.setObject3D("boxybox", myBox);
