@@ -56,15 +56,13 @@ const config = {
         use: "file-loader",
       },
       {
-        test: /\.png$/,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              mimetype: "image/png",
-            },
-          },
-        ],
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ["file-loader"],
+      },
+      {
+        test: /\.glsl/,
+        exclude: /(node_modules)/,
+        loader: "webpack-glsl-loader",
       },
     ],
   },

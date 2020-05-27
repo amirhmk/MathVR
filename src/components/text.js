@@ -63,14 +63,14 @@ AFRAME.registerComponent("custom-text", {
     });
     el.setAttribute("class", "clickable");
     // Event listener for click
-    el.addEventListener("click", function (event) {
+    el.addEventListener("click", function () {
       el.emit("remove", { text: "hellowordl" });
     });
     // event listener for mouse-over
-    el.addEventListener("mouseenter", function (event) {
+    el.addEventListener("mouseenter", function () {
       el.setAttribute("text", { color: "blue" });
     });
-    el.addEventListener("mouseleave", function (e) {
+    el.addEventListener("mouseleave", function () {
       el.setAttribute("text", { color: "white" });
     });
   },

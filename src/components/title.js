@@ -12,22 +12,16 @@ AFRAME.registerComponent("title", {
       bevelSize: 8,
     });
     const material = new THREE.MeshStandardMaterial({
-      color: 0x2194ce,
-      metalness: ".3",
-      wireframe: true,
+      color: 0xf7cb0d,
+      metalness: 0.1,
       roughness: 0.2,
     });
     const mesh = new THREE.Mesh(geometry, material);
     this.el.setObject3D("text-geometry", mesh);
     this.el.setAttribute("position", {
-      x: -5,
-      y: 5,
+      x: -5.75,
+      y: 6,
       z: -8,
-    });
-    const el = this.el;
-    const sceneEl = el.sceneEl;
-    sceneEl.addEventListener("remove", function (event) {
-      sceneEl.remove(el);
     });
   },
   remove: function () {

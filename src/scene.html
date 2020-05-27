@@ -1,36 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title></title>
-  </head>
 
-  <body>
-    <a-scene>
-      <!-- Title -->
-      <a-entity title></a-entity>
-      <!-- Moutain -->
-      <a-entity
-        environment="preset: forest; seed: 3; groundColor: #9BE31C; groundColor2: #9BE31C; dressingColor: #a78170; grid: 1x1; gridColor: #ccc#9BE31C"
-        position="0 -2 0"
-        visible=""
-      >
-      </a-entity>
-      <!-- Menu -->
-      <a-entity welcome></a-entity>
-      <!-- Cursor -->
-      <a-entity camera look-controls position="0 1.8 0">
-        <a-entity
-          cursor="rayOrigin:mouse; fuse:true;"
-          raycaster="objects: .clickable"
-        ></a-entity>
-      </a-entity>
-      <a-entity
-        laser-controls
-        raycaster="objects: .clickable;"
-        line="opacity: 1"
-      ></a-entity>
-    </a-scene>
-  </body>
+<head>
+  <title></title>
+  <meta charset="utf-8" />
+</head>
+
+<body>
+  <a-scene stats>
+    <!-- assets -->
+
+    <!-- Forest -->
+    <a-entity
+      environment="preset: forest; seed: 3;  groundColor: #9BE31C; groundColor2: #9BE31C; dressingColor: #a78170; grid: 1x1; gridColor: #ccc#9BE31C"
+      position="0 -2 0" id='environment'>
+
+    </a-entity>
+    <!-- Title -->
+    <a-entity title id='title' fadeaway class='welcome-page'></a-entity>
+
+    <!-- Menu -->
+    <a-entity welcome id='welcome-screen' visible='true' fadeaway class='welcome-page'></a-entity>
+    <!-- Torus -->
+    <a-entity geometry="primitive: torus; radius: 0.6; radiusTubular: 0.14" position="-4 1 -4"
+      material="metalness: 0.56; metalnessTextureOffset: 0.25 0.29; roughness: 0" rotation="150 0 0"
+      animation='property: rotation; to:150 360 0; dur: 2000; easing: linear; loop: true' id='torus' visible='true'
+      fadeaway class='welcome-page'>
+    </a-entity>
+    <!-- Square/circle -->
+    <a-entity roundbox='borderRadius:0.15' id='roundBox' visible='true' fadeaway class='welcome-page'></a-entity>
+
+    <!-- Cursor -->
+
+    <a-entity camera look-controls position="0 1.8 0">
+      <a-entity cursor="rayOrigin:mouse; fuse:true;" raycaster="objects: .clickable"></a-entity>
+    </a-entity>
+    <a-entity laser-controls raycaster="objects: .clickable;" line="opacity: 1"></a-entity>
+  </a-scene>
+</body>
+
 </html>
 <!-- 
  -->
