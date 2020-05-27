@@ -58,6 +58,11 @@ const config = {
         test: /\.(png|svg|jpg|gif)$/,
         use: ["file-loader"],
       },
+      {
+        test: /\.glsl/,
+        exclude: /(node_modules)/,
+        loader: "webpack-glsl-loader",
+      },
     ],
   },
   plugins: [

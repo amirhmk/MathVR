@@ -4,6 +4,10 @@ import "aframe-environment-component";
 // componenents
 import "./components/title";
 import "./components/welcomeScreen.js";
+import "./components/button";
+import "./components/buttonShader";
+import "./components/roundCornerBox";
+import "./components/fadeaway";
 import "./components/text";
 import "./components/probability";
 import "./components/probability/dice";
