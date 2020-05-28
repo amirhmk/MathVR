@@ -38,16 +38,11 @@
       ></a-box>
       <a-entity
         card="pos_x: -4.5; pos_y: 0.3; rot_x: -15; rot_y:20; text:Results\n\n1: 0\n2: 2\n3: 0\n4: 5\n6: 7"
-        class="probability"
+        class="probability" class="probability" visible=false
       ></a-entity>
-      <a-entity
-        card="pos_x: 4.5; pos_y: 0.7; rot_x: -15; rot_y:-25; text: Settings"
-        class="probability"
-      ></a-entity>
-      <a-entity probability></a-entity>
+      <a-entity probability class="probability"></a-entity>
       
       <!-- Cursor -->
-      <a-entity id="mouseCursor" cursor="rayOrigin: mouse"></a-entity>
       <a-entity camera look-controls position="0 1.8 0">
         <a-entity
           cursor="rayOrigin:mouse; fuse:true;"

@@ -1,8 +1,10 @@
+const CENTER_X_POS = 1.7;
+
 AFRAME.registerComponent("card", {
   schema: {
     text: {
       type: "string",
-      default: "Hello",
+      default: "",
     },
     pos_x: {
       type: "number",
@@ -28,6 +30,14 @@ AFRAME.registerComponent("card", {
       type: "number",
       default: 0,
     },
+    pos_x_text_offset: {
+      type: "number",
+      default: 0,
+    },
+    pos_y_text_offset: {
+      type: "number",
+      default: 0,
+    },
   },
   init: function () {
     const el = this.el;
@@ -35,6 +45,9 @@ AFRAME.registerComponent("card", {
       primitive: "plane",
       width: 3,
       height: 2,
+    });
+    el.setAttribute("material", {
+      color: "blue",
     });
     this.el.setAttribute("position", {
       x: this.data.pos_x,
@@ -49,8 +62,8 @@ AFRAME.registerComponent("card", {
     const titleEl = document.createElement("a-entity");
     titleEl.setAttribute("custom-text", {
       value: this.data.text,
-      pos_x: 1.7,
-      pos_y: this.data.pos_y,
+      pos_x: CENTER_X_POS + this.data.pos_x_text_offset,
+      pos_y: this.data.pos_y + this.data.pos_y_text_offset,
     });
     this.el.appendChild(titleEl);
   },

@@ -4,7 +4,7 @@ AFRAME.registerComponent("custom-text", {
   schema: {
     value: {
       type: "string",
-      default: "Results",
+      default: "",
     },
     width: {
       type: "number",

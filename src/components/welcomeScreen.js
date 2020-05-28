@@ -40,9 +40,13 @@ AFRAME.registerComponent("welcome", {
     button.addEventListener("mouseleave", function () {
       button.setAttribute("geometry", { width: 1.5, height: 0.5 });
     });
-
     button.addEventListener("click", function () {
       button.emit("fadeaway", { className: "welcome-page" }, true);
+      setTimeout(() => {
+        document
+          .querySelector("a-scene")
+          .setAttribute("probability", { isActive: 1 });
+      }, 1200);
     });
     this.el.appendChild(button);
   },
