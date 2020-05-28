@@ -6,7 +6,7 @@ AFRAME.registerComponent("probability", {
     },
   },
   init: function () {
-    const el = this.el;
+    const probability = this;
     // Card for results
     const resultsEl = document.createElement("a-entity");
     resultsEl.setAttribute("card", {
@@ -52,7 +52,6 @@ AFRAME.registerComponent("probability", {
     let idx = 0;
     for (let num_dices = 1; num_dices <= 32; num_dices = num_dices * 2) {
       const button = document.createElement("a-entity");
-      console.log("hello there", num_dices);
       button.setAttribute("button", { value: num_dices });
       button.setAttribute("position", {
         x: positions[idx][0],
@@ -69,16 +68,7 @@ AFRAME.registerComponent("probability", {
         button.setAttribute("geometry", { width: 1.5, height: 0.5 });
       });
       button.addEventListener("click", function () {
-        for (var i = 0; i < num_dices; i++) {
-          const diceEl = document.createElement("a-entity");
-          diceEl.setAttribute("class", "dice");
-          diceEl.setAttribute("dice", {
-            pos_x: Math.random() * 3 + 1,
-            pos_y: Math.random() * 3 + 1,
-            pos_z: Math.random() * 3 + -4,
-          });
-          el.appendChild(diceEl);
-        }
+        probability.throwDices(num_dices);
       });
       settingEl.appendChild(button);
     }
@@ -96,6 +86,18 @@ AFRAME.registerComponent("probability", {
           dur: 1000,
         })
       );
+    }
+  },
+  throwDices: function (num_dices) {
+    for (var i = 0; i < num_dices; i++) {
+      const diceEl = document.createElement("a-entity");
+      diceEl.setAttribute("class", "dice");
+      diceEl.setAttribute("dice", {
+        pos_x: Math.random() * 3 + 1,
+        pos_y: Math.random() * 3 + 1,
+        pos_z: Math.random() * 3 + -4,
+      });
+      this.el.appendChild(diceEl);
     }
   },
   remove: function () {
