@@ -33,7 +33,7 @@ AFRAME.registerComponent("welcome", {
       z: 0,
     });
     button.setAttribute("class", "clickable");
-    button.setAttribute("id", "probability");
+    button.setAttribute("id", "probabilityRender");
     button.addEventListener("mouseenter", function () {
       button.setAttribute("geometry", { width: 1.6, height: 0.6 });
     });
@@ -41,12 +41,7 @@ AFRAME.registerComponent("welcome", {
       button.setAttribute("geometry", { width: 1.5, height: 0.5 });
     });
     button.addEventListener("click", function () {
-      button.emit("fadeaway", { className: "welcome-page" }, true);
-      setTimeout(() => {
-        document
-          .querySelector("a-scene")
-          .setAttribute("probability", { isActive: 1 });
-      }, 1200);
+      button.emit("transition", { fadeOut: "welcome-page", fadeIn: button.id });
     });
     this.el.appendChild(button);
   },

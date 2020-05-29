@@ -22,7 +22,7 @@ AFRAME.registerComponent("probability", {
       y: 0,
       z: 0,
     });
-    resultsEl.setAttribute("class", "cardProb");
+    resultsEl.setAttribute("class", "probabilityRender");
 
     // Card for dice throwing options
     const settingEl = document.createElement("a-entity");
@@ -43,7 +43,7 @@ AFRAME.registerComponent("probability", {
       rot_y: -25,
       pos_x_text_offset: -0.1,
     });
-    settingEl.setAttribute("class", "cardProb");
+    settingEl.setAttribute("class", "probabilityRender");
     settingEl.setAttribute("scale", {
       x: 0,
       y: 0,
@@ -74,19 +74,6 @@ AFRAME.registerComponent("probability", {
     }
     this.el.appendChild(resultsEl);
     this.el.appendChild(settingEl);
-  },
-  update: function () {
-    // Updatee gets called after init once too, hence the need for this check
-    if (this.data.isActive) {
-      const allElements = document.querySelectorAll(" .cardProb");
-      allElements.forEach((el) =>
-        el.setAttribute("animation", {
-          property: "scale",
-          to: "1 1 1",
-          dur: 1000,
-        })
-      );
-    }
   },
   throwDices: function (num_dices) {
     for (var i = 0; i < num_dices; i++) {

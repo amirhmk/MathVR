@@ -7,7 +7,7 @@
   <body>
     <a-scene>
       <!-- Title -->
-      <a-entity title id='title' fadeaway class='welcome-page'></a-entity>
+      <a-entity title id='title' transition class='welcome-page'></a-entity>
       <!-- Forest -->
       <a-entity
         environment="preset: forest; seed: 3; groundColor: #9BE31C; groundColor2: #9BE31C; dressingColor: #a78170; grid: 1x1; gridColor: #ccc#9BE31C"
@@ -16,18 +16,18 @@
       >
       </a-entity>
       <!-- Menu -->
-      <a-entity welcome id='welcome-screen' visible='true' fadeaway class='welcome-page'></a-entity>
+      <a-entity welcome id='welcome-screen' visible='true' transition class='welcome-page'></a-entity>
       <!-- Torus -->
       <a-entity geometry="primitive: torus; radius: 0.6; radiusTubular: 0.14" position="-4 1 -4"
         material="metalness: 0.56; metalnessTextureOffset: 0.25 0.29; roughness: 0" rotation="150 0 0"
-        animation='property: rotation; to:150 360 0; dur: 2000; easing: linear; loop: true' id='torus' visible='true' fadeaway
+        animation='property: rotation; to:150 360 0; dur: 2000; easing: linear; loop: true' id='torus' visible='true' transition
         class='welcome-page'>
       </a-entity>
       <!-- Square/circle -->
-      <a-entity roundbox='borderRadius:0.15' id='roundBox' visible='true' fadeaway class='welcome-page'></a-entity>      <!-- Cursor -->
+      <a-entity roundbox='borderRadius:0.15' id='roundBox' visible='true' transition class='welcome-page'></a-entity>      <!-- Cursor -->
       <!-- Place holder Ground for Physics engine -->
       <a-box
-        id="one"
+        id="physics-ground"
         position="2 -2.5 -3"
         color="blue"
         static-body
@@ -36,11 +36,7 @@
         depth="1000"
         visible="false"
       ></a-box>
-      <a-entity
-        card="pos_x: -4.5; pos_y: 0.3; rot_x: -15; rot_y:20; text:Results\n\n1: 0\n2: 2\n3: 0\n4: 5\n6: 7"
-        class="probability" class="probability" visible=false
-      ></a-entity>
-      <a-entity probability class="probability"></a-entity>
+      <a-entity id="probabilty-scene" probability></a-entity>
       
       <!-- Cursor -->
       <a-entity camera look-controls position="0 1.8 0">

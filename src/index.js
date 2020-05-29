@@ -7,7 +7,7 @@ import "./components/welcomeScreen.js";
 import "./components/button";
 import "./components/buttonShader";
 import "./components/roundCornerBox";
-import "./components/fadeaway";
+import "./components/transition";
 import "./components/text";
 import "./components/probability";
 import "./components/probability/dice";

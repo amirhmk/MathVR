@@ -23,12 +23,6 @@ AFRAME.registerComponent("title", {
       y: 6,
       z: -8,
     });
-    const el = this.el;
-    const sceneEl = el.sceneEl;
-    // eslint-disable-next-line no-unused-vars
-    sceneEl.addEventListener("remove", function (event) {
-      sceneEl.remove(el);
-    });
   },
   remove: function () {
     console.log("what the fuck");
