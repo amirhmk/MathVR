@@ -1,4 +1,10 @@
 AFRAME.registerComponent("dice-manager", {
+  schema: {
+    total_dices: {
+      type: "number",
+      default: 0,
+    },
+  },
   init: function () {
     const el = this.el;
     this.el.sceneEl.addEventListener("throwDice", function (e) {
@@ -13,6 +19,9 @@ AFRAME.registerComponent("dice-manager", {
         });
         el.appendChild(diceEl);
       }
+      const new_total_dices =
+        Number(el.getAttribute("total_dices")) + Number(num_dices);
+      el.setAttribute("total_dices", new_total_dices);
     });
   },
 });
