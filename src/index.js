@@ -10,8 +10,9 @@ import "./components/roundCornerBox";
 import "./components/transition";
 import "./components/text";
 import "./components/probability";
-import "./components/probability/dice";
+import "./components/dice";
 import "./components/card";
+import "./components/diceManager";
 
 // scene
 import "./scene.html";

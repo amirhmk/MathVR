@@ -1,12 +1,6 @@
 AFRAME.registerComponent("probability", {
-  schema: {
-    isActive: {
-      type: "number",
-      default: 0,
-    },
-  },
   init: function () {
-    const probability = this;
+    const el = this.el;
     // Card for results
     const resultsEl = document.createElement("a-entity");
     resultsEl.setAttribute("card", {
@@ -68,24 +62,12 @@ AFRAME.registerComponent("probability", {
         button.setAttribute("geometry", { width: 1.5, height: 0.5 });
       });
       button.addEventListener("click", function () {
-        probability.throwDices(num_dices);
+        el.emit("throwDice", { num_dices });
       });
       settingEl.appendChild(button);
     }
     this.el.appendChild(resultsEl);
     this.el.appendChild(settingEl);
-  },
-  throwDices: function (num_dices) {
-    for (var i = 0; i < num_dices; i++) {
-      const diceEl = document.createElement("a-entity");
-      diceEl.setAttribute("class", "dice");
-      diceEl.setAttribute("dice", {
-        pos_x: Math.random() * 3 + 1,
-        pos_y: Math.random() * 3 + 1,
-        pos_z: Math.random() * 3 + -4,
-      });
-      this.el.appendChild(diceEl);
-    }
   },
   remove: function () {
     console.log("bye prob");
