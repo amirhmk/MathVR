@@ -1,6 +1,13 @@
 AFRAME.registerComponent("probability", {
   init: function () {
     const el = this.el;
+    // Create title
+    const title = document.createElement("a-entity");
+    title.setAttribute("title", { value: "Probability" });
+    title.setAttribute("class", "probabilityRender");
+    title.setAttribute("position", { x: -3.15, y: 6, z: -8 });
+    title.setAttribute("scale", { x: 0, y: 0, z: 0 });
+    el.appendChild(title);
     // Card for results
     const resultsEl = document.createElement("a-entity");
     resultsEl.setAttribute("card", {

@@ -1,56 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title></title>
-  </head>
 
-  <body>
-    <a-scene>
-      <!-- Title -->
-      <a-entity title id='title' transition class='welcome-page'></a-entity>
-      <!-- Forest -->
-      <a-entity
-        environment="preset: forest; seed: 3; groundColor: #9BE31C; groundColor2: #9BE31C; dressingColor: #a78170; grid: 1x1; gridColor: #ccc#9BE31C"
-        position="0 -2 0"
-        visible=""
-      >
-      </a-entity>
-      <!-- Menu -->
-      <a-entity welcome id='welcome-screen' visible='true' transition class='welcome-page'></a-entity>
-      <!-- Torus -->
-      <a-entity geometry="primitive: torus; radius: 0.6; radiusTubular: 0.14" position="-4 1 -4"
-        material="metalness: 0.56; metalnessTextureOffset: 0.25 0.29; roughness: 0" rotation="150 0 0"
-        animation='property: rotation; to:150 360 0; dur: 2000; easing: linear; loop: true' id='torus' visible='true' transition
-        class='welcome-page'>
-      </a-entity>
-      <!-- Square/circle -->
-      <a-entity roundbox='borderRadius:0.15' id='roundBox' visible='true' transition class='welcome-page'></a-entity>      <!-- Cursor -->
-      <!-- Place holder Ground for Physics engine -->
-      <a-box
-        id="physics-ground"
-        position="2 -2.5 -3"
-        color="blue"
-        static-body
-        width="1000"
-        height="1"
-        depth="1000"
-        visible="false"
-      ></a-box>
-      <a-entity id="probabilty-scene" probability></a-entity>
-      <a-entity id="dice-manager" dice-manager></a-entity>
-      <!-- Cursor -->
-      <a-entity camera look-controls position="0 1.8 0">
-        <a-entity
-          cursor="rayOrigin:mouse; fuse:true;"
-          raycaster="objects: .clickable"
-        ></a-entity>
-      </a-entity>
-      <a-entity
-        laser-controls
-        raycaster="objects: .clickable;"
-        line="opacity: 1"
-      >
-      </a-entity>
-    </a-scene>
-  </body>
+<head>
+  <title></title>
+</head>
+
+<body>
+  <a-scene>
+    <!-- Title -->
+    <a-entity title='value:Welcome to MathVR; ' id='title' transition class='welcome-page' position='-5.75 6 -8'>
+    </a-entity>
+    <!-- Forest -->
+    <a-entity
+      environment="preset: forest; seed: 3; groundColor: #9BE31C; groundColor2: #9BE31C; dressingColor: #a78170; grid: 1x1; gridColor: #ccc#9BE31C"
+      position="0 -2 0" visible="">
+    </a-entity>
+    <!-- Menu -->
+    <a-entity welcome id='welcome-screen' visible='true' transition class='welcome-page'></a-entity>
+    <!-- Torus -->
+    <a-entity geometry="primitive: torus; radius: 0.6; radiusTubular: 0.14" position="-4 1 -4"
+      material="metalness: 0.56; metalnessTextureOffset: 0.25 0.29; roughness: 0" rotation="150 0 0"
+      animation='property: rotation; to:150 360 0; dur: 2000; easing: linear; loop: true' id='torus' visible='true'
+      transition class='welcome-page'>
+    </a-entity>
+    <!-- Square/circle -->
+    <a-entity roundbox='borderRadius:0.15' id='roundBox' visible='true' transition class='welcome-page'></a-entity>
+    <!-- Cursor -->
+    <!-- Place holder Ground for Physics engine -->
+    <a-box id="physics-ground" position="2 -2.5 -3" color="blue" static-body width="1000" height="1" depth="1000"
+      visible="false"></a-box>
+    <a-entity id="probabilty-scene" probability></a-entity>
+    <a-entity id="dice-manager" dice-manager></a-entity>
+    <!-- Cursor -->
+    <a-entity camera look-controls position="0 1.8 0">
+      <a-entity cursor="rayOrigin:mouse; fuse:true;" raycaster="objects: .clickable"></a-entity>
+    </a-entity>
+    <a-entity laser-controls raycaster="objects: .clickable;" line="opacity: 1">
+    </a-entity>
+  </a-scene>
+</body>
+
 </html>
