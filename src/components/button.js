@@ -2,20 +2,34 @@ AFRAME.registerComponent("button", {
   schema: {
     value: { type: "string", default: "button" },
     height: { type: "number", default: 0.5 },
-    width: { type: "number", default: 4 },
+    width: { type: "number", default: 1.5 },
+    textWidth: { type: "number", default: 4 },
+    borderRadius: { type: "number", default: 0 },
+    colorPrimary: { type: "string", default: "#8f3d3d" },
+    colorSecondary: { type: "string", default: "#2cc0f2" },
   },
   init: function () {
     const el = this.el;
-    const { height, value, width } = this.data;
+    const {
+      width,
+      height,
+      value,
+      textWidth,
+      colorPrimary,
+      colorSecondary,
+      borderRadius,
+    } = this.data;
     el.setAttribute("geometry", {
       primitive: "plane",
       height: height,
-      width: 1.5,
+      width: width,
     });
 
     el.setAttribute("material", {
       shader: "buttonShader",
-      borderRadius: 0.28,
+      colorPrimary: colorPrimary,
+      colorSecondary: colorSecondary,
+      borderRadius: borderRadius,
       opacity: 1,
       borderWidth: 0.02,
     });
@@ -23,7 +37,17 @@ AFRAME.registerComponent("button", {
     el.setAttribute("text", {
       value: value,
       align: "center",
-      width: width,
+      width: textWidth,
+    });
+    el.setAttribute("class", "clickable");
+    el.addEventListener("mouseenter", function () {
+      el.setAttribute("geometry", {
+        width: width * 1.075,
+        height: height * 1.001,
+      });
+    });
+    el.addEventListener("mouseleave", function () {
+      el.setAttribute("geometry", { width: width, height: height });
     });
   },
 });
