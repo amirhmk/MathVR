@@ -13,6 +13,8 @@ import "./components/probability";
 import "./components/dice";
 import "./components/card";
 import "./components/diceManager";
+import "./components/slide";
+import "./components/slideText";
 
 // scene
 import "./scene.html";
