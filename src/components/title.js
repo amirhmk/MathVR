@@ -4,18 +4,23 @@ const font = loader.parse(fontJSON);
 AFRAME.registerComponent("title", {
   schema: {
     value: { type: "string", default: "Hello World!" },
-    color: { type: "number", default: 0xf7cb0d },
+    height: { type: "number", default: 0.1 },
+    size: { type: "number", default: 1 },
+    curveSegments: { type: "number", default: 12 },
+    bevelSize: { type: "number", default: 8 },
+    bevelThickness: { type: "number", default: 10 },
+    color: { type: "string", default: "#FFC025" },
     metalness: { type: "number", default: 0.1 },
     roughness: { type: "number", default: 0.2 },
   },
   init: function () {
     const geometry = new THREE.TextGeometry(this.data.value, {
       font: font,
-      size: 1,
-      height: 0.1,
-      curveSegments: 12,
-      bevelThickness: 10,
-      bevelSize: 8,
+      size: this.data.size,
+      height: this.data.height,
+      curveSegments: this.data.curveSegments,
+      bevelThickness: this.data.curveSegments,
+      bevelSize: this.data.bevelSize,
     });
     const material = new THREE.MeshStandardMaterial({
       color: this.data.color,
