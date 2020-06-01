@@ -34,12 +34,6 @@ AFRAME.registerComponent("welcome", {
     });
     button.setAttribute("class", "clickable");
     button.setAttribute("id", "probabilityRender");
-    button.addEventListener("mouseenter", function () {
-      button.setAttribute("geometry", { width: 1.6, height: 0.6 });
-    });
-    button.addEventListener("mouseleave", function () {
-      button.setAttribute("geometry", { width: 1.5, height: 0.5 });
-    });
     button.addEventListener("click", function () {
       button.emit("transition", { fadeOut: "welcome-page", fadeIn: button.id });
     });
