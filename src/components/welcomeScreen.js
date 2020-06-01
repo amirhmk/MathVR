@@ -33,16 +33,9 @@ AFRAME.registerComponent("welcome", {
       z: 0,
     });
     button.setAttribute("class", "clickable");
-    button.setAttribute("id", "probability");
-    button.addEventListener("mouseenter", function () {
-      button.setAttribute("geometry", { width: 1.6, height: 0.6 });
-    });
-    button.addEventListener("mouseleave", function () {
-      button.setAttribute("geometry", { width: 1.5, height: 0.5 });
-    });
-
+    button.setAttribute("id", "probabilityRender");
     button.addEventListener("click", function () {
-      button.emit("fadeaway", { className: "welcome-page" }, true);
+      button.emit("transition", { fadeOut: "welcome-page", fadeIn: button.id });
     });
     this.el.appendChild(button);
   },

@@ -8,7 +8,6 @@ const config = {
     path: path.resolve(__dirname, "docs"),
     filename: "bundle.js",
   },
-
   devServer: {
     contentBase: path.join(__dirname, "docs"),
     compress: true,

@@ -1,16 +1,18 @@
+// TODO Remove this comment later on
+/* eslint-disable no-unused-vars */
 AFRAME.registerComponent("custom-text", {
   schema: {
     value: {
       type: "string",
-      default: "fart alert",
+      default: "",
     },
     width: {
       type: "number",
-      default: 5,
+      default: 10,
     },
     height: {
       type: "number",
-      default: 5,
+      default: 10,
     },
     pos_x: {
       type: "number",
@@ -41,25 +43,22 @@ AFRAME.registerComponent("custom-text", {
     const el = this.el;
     el.setAttribute("geometry", {
       primitive: "plane",
+      color: this.data.color,
+      width: "auto",
+      height: "auto",
     });
     el.setAttribute("text", {
       value: this.data.value,
-      width: this.data.width,
-      height: this.data.height,
-      align: "center",
+      width: 4,
     });
     el.setAttribute("position", {
       x: this.data.pos_x,
       y: this.data.pos_y,
       c: this.data.pos_z,
     });
-    el.setAttribute("rotation", {
-      x: this.data.rot_x,
-      y: this.data.rot_y,
-      c: this.data.rot_z,
-    });
     el.setAttribute("material", {
-      visible: false,
+      opacity: 0,
+      visible: true,
     });
     el.setAttribute("class", "clickable");
     // Event listener for click
