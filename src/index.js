@@ -15,6 +15,7 @@ import "./components/card";
 import "./components/diceManager";
 import "./components/slide";
 import "./components/slideText";
+import "./components/probabilitySlides";
 
 // scene
 import "./scene.html";

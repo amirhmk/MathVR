@@ -8,13 +8,7 @@ AFRAME.registerComponent("probability", {
     title.setAttribute("position", { x: -3.15, y: 6, z: -8 });
     title.setAttribute("scale", { x: 0, y: 0, z: 0 });
     el.appendChild(title);
-    // Slides
-    const slide1 = document.createElement("a-entity");
-    slide1.setAttribute("slide", "");
-    slide1.setAttribute("id", "slide-1");
-    slide1.setAttribute("class", "probabilityRender");
-    slide1.setAttribute("scale", "0 0 0");
-    el.appendChild(slide1);
+
     // Card for results
     const resultsEl = document.createElement("a-entity");
     resultsEl.setAttribute("card", {

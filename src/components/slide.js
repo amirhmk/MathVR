@@ -1,4 +1,20 @@
 AFRAME.registerComponent("slide", {
+  schema: {
+    title: { type: "string", default: "What is probability?" },
+    firstPoint: {
+      type: "string",
+      default: "math is amazing, whatever i just need a longer sentence",
+    },
+    secondPoint: {
+      type: "string",
+      default: "Math is difficult, once again I need a longer sentence",
+    },
+    thirdPoint: {
+      type: "string",
+      default: "Is math invented or has it always been there",
+    },
+    next: { type: "boolean", default: false },
+  },
   init: function () {
     const el = this.el;
     el.setAttribute("geometry", {
@@ -19,8 +35,37 @@ AFRAME.registerComponent("slide", {
       y: 310,
       z: 0,
     });
-    const text = document.createElement("a-entity");
-    text.setAttribute("slide-text", { next: true });
-    el.appendChild(text);
+    this.text = document.createElement("a-entity");
+    this.text.setAttribute("slide-text", {
+      next: this.data.next,
+      title: this.data.title,
+      firstPoint: this.data.firstPoint,
+      secondPoint: this.data.secondPoint,
+      thirdPoint: this.data.thirdPoint,
+    });
+    el.appendChild(this.text);
+    el.addEventListener("animation", function () {
+      console.log("animation about to begin");
+      el.setAttribute("animation__fade", {
+        property: "scale",
+        to: "0 0 0",
+        loop: false,
+      });
+    });
+  },
+  update: function (oldData) {
+    if (oldData.firstPoint) {
+      this.el.removeChild(this.text);
+      this.text = document.createElement("a-entity");
+      this.text.setAttribute("slide-text", {
+        next: this.data.next,
+        title: this.data.title,
+        firstPoint: this.data.firstPoint,
+        secondPoint: this.data.secondPoint,
+        thirdPoint: this.data.thirdPoint,
+      });
+      this.el.appendChild(this.text);
+      console.log(oldData, "this is old data");
+    }
   },
 });

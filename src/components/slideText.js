@@ -87,7 +87,43 @@ AFRAME.registerComponent("slide-text", {
     el.append(thirdPoint);
     if (this.data.next) {
       const button = document.createElement("a-entity");
-      button.setAttribute("button", { value: "next" });
+      button.setAttribute("button", {
+        value: "Next",
+        height: 0.2,
+        width: 0.5,
+        textWidth: 1.5,
+        colorPrimary: "#7BC1F4",
+        colorSecondary: "#CEFFA2 ",
+      });
+      button.setAttribute("position", {
+        y: -0.65,
+      });
+      button.setAttribute("rotation", {
+        y: 50,
+      });
+      button.addEventListener("click", function () {
+        button.emit("next-slide");
+      });
+      el.appendChild(button);
+    } else {
+      const button = document.createElement("a-entity");
+      button.setAttribute("button", {
+        value: "Animation",
+        height: 0.2,
+        width: 0.5,
+        textWidth: 1.5,
+        colorPrimary: "#7BC1F4",
+        colorSecondary: "#CEFFA2 ",
+      });
+      button.setAttribute("position", {
+        y: -0.65,
+      });
+      button.setAttribute("rotation", {
+        y: 50,
+      });
+      button.addEventListener("click", function () {
+        button.emit("animation");
+      });
       el.appendChild(button);
     }
   },
