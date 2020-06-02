@@ -14,7 +14,10 @@ AFRAME.registerComponent("slide", {
       default: "Is math invented or has it always been there",
     },
     next: { type: "boolean", default: false },
+    fadeOut: { type: "string", default: "" },
+    fadeIn: { type: "string", default: "" },
   },
+
   init: function () {
     const el = this.el;
     el.setAttribute("geometry", {
@@ -42,16 +45,10 @@ AFRAME.registerComponent("slide", {
       firstPoint: this.data.firstPoint,
       secondPoint: this.data.secondPoint,
       thirdPoint: this.data.thirdPoint,
+      fadeIn: this.data.fadeIn,
+      fadeOut: this.data.fadeOut,
     });
     el.appendChild(this.text);
-    el.addEventListener("animation", function () {
-      console.log("animation about to begin");
-      el.setAttribute("animation__fade", {
-        property: "scale",
-        to: "0 0 0",
-        loop: false,
-      });
-    });
   },
   update: function (oldData) {
     if (oldData.firstPoint) {
@@ -63,9 +60,10 @@ AFRAME.registerComponent("slide", {
         firstPoint: this.data.firstPoint,
         secondPoint: this.data.secondPoint,
         thirdPoint: this.data.thirdPoint,
+        fadeOut: this.data.fadeOut,
+        fadeIn: this.data.fadeIn,
       });
       this.el.appendChild(this.text);
-      console.log(oldData, "this is old data");
     }
   },
 });

@@ -1,13 +1,6 @@
-AFRAME.registerComponent("probability", {
+AFRAME.registerComponent("probability-cards", {
   init: function () {
     const el = this.el;
-    // Create title
-    const title = document.createElement("a-entity");
-    title.setAttribute("title", { value: "Probability" });
-    title.setAttribute("class", "probabilityRender");
-    title.setAttribute("position", { x: -3.15, y: 6, z: -8 });
-    title.setAttribute("scale", { x: 0, y: 0, z: 0 });
-    el.appendChild(title);
 
     // Card for results
     const resultsEl = document.createElement("a-entity");
@@ -24,7 +17,7 @@ AFRAME.registerComponent("probability", {
       y: 0,
       z: 0,
     });
-    resultsEl.setAttribute("class", "probabilityRender");
+    resultsEl.setAttribute("class", "probability-cards");
 
     // Card for dice throwing options
     const settingEl = document.createElement("a-entity");
@@ -37,6 +30,7 @@ AFRAME.registerComponent("probability", {
       [-0.7, -0.4, 0.1],
       [0.7, -0.4, 0.1],
     ];
+    settingEl.setAttribute("class", "probability-cards");
     settingEl.setAttribute("card", {
       text: "Throw Dice",
       pos_x: 4.5,
@@ -45,7 +39,6 @@ AFRAME.registerComponent("probability", {
       rot_y: -25,
       pos_x_text_offset: -0.1,
     });
-    settingEl.setAttribute("class", "probabilityRender");
     settingEl.setAttribute("scale", {
       x: 0,
       y: 0,
@@ -68,6 +61,7 @@ AFRAME.registerComponent("probability", {
       });
       settingEl.appendChild(button);
     }
+
     this.el.appendChild(resultsEl);
     this.el.appendChild(settingEl);
   },

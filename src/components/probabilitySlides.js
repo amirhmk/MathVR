@@ -18,6 +18,8 @@ const slide3 = {
   secondPoint: "Math is difficult, once again I need a longer sentence",
   thirdPoint: "Is math invented or has it always been there",
   next: false,
+  fadeOut: "prob-slides",
+  fadeIn: "probability-cards",
 };
 
 const slides = [slide1, slide2, slide3];
@@ -30,7 +32,6 @@ AFRAME.registerComponent("probability-slides", {
     el.setAttribute("slide", slide1);
     el.sceneEl.addEventListener("next-slide", function () {
       if (self.currentSlide < numberOfSlides) {
-        console.log(self.currentSlide);
         self.currentSlide += 1;
         el.setAttribute("slide", slides[self.currentSlide]);
       }

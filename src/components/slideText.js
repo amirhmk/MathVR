@@ -14,6 +14,8 @@ AFRAME.registerComponent("slide-text", {
       default: "Is math invented or has it always been there",
     },
     next: { type: "boolean", default: false },
+    fadeOut: { type: "string", default: "" },
+    fadeIn: { type: "string", default: "" },
   },
   init: function () {
     const el = this.el;
@@ -121,8 +123,14 @@ AFRAME.registerComponent("slide-text", {
       button.setAttribute("rotation", {
         y: 50,
       });
+      const fadeOut = this.data.fadeOut;
+      const fadeIn = this.data.fadeIn;
       button.addEventListener("click", function () {
-        button.emit("animation");
+        console.log(fadeOut);
+        button.emit("transition", {
+          fadeOut: fadeOut,
+          fadeIn: fadeIn,
+        });
       });
       el.appendChild(button);
     }
