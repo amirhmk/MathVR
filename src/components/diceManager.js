@@ -59,7 +59,7 @@ AFRAME.registerComponent("dice-manager", {
         const elementsToAdd = sceneEl.querySelectorAll(`.dice`);
         elementsToAdd.forEach((d) => {
           const { x, z } = d.object3D.rotation;
-          const face = diceManager.getDiceFace(x, z);
+          const face = diceManager.getDiceFace(x, z) || 3;
           diceManager.diceResults[face] += 1;
         });
         el.setAttribute(

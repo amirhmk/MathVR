@@ -38,9 +38,24 @@ AFRAME.registerComponent("card", {
       type: "number",
       default: 0,
     },
+    type: {
+      type: "string",
+      default: "",
+    },
   },
   init: function () {
     const el = this.el;
+    const {
+      pos_x,
+      pos_y,
+      rot_x,
+      rot_y,
+      rot_z,
+      text,
+      pos_x_text_offset,
+      pos_y_text_offset,
+      type,
+    } = this.data;
     el.setAttribute("geometry", {
       primitive: "plane",
       width: 3,
@@ -50,21 +65,22 @@ AFRAME.registerComponent("card", {
       color: "blue",
     });
     this.el.setAttribute("position", {
-      x: this.data.pos_x,
+      x: pos_x,
       y: 2,
       z: -5,
     });
     el.setAttribute("rotation", {
-      x: this.data.rot_x,
-      y: this.data.rot_y,
-      c: this.data.rot_z,
+      x: rot_x,
+      y: rot_y,
+      c: rot_z,
     });
     const titleEl = document.createElement("a-entity");
     titleEl.setAttribute("custom-text", {
-      value: this.data.text,
-      pos_x: CENTER_X_POS + this.data.pos_x_text_offset,
-      pos_y: this.data.pos_y + this.data.pos_y_text_offset,
+      value: text,
+      pos_x: CENTER_X_POS + pos_x_text_offset,
+      pos_y: pos_y + pos_y_text_offset,
     });
+    titleEl.setAttribute("id", `card_text_${type}`);
     this.el.appendChild(titleEl);
   },
 });
