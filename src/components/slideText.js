@@ -22,7 +22,9 @@ AFRAME.registerComponent("slide-text", {
     const title = document.createElement("a-entity");
     title.setAttribute("text", {
       value: this.data.title,
+      color: "grey",
       align: "center",
+      font: "https://cdn.aframe.io/fonts/mozillavr.fnt",
       width: 3,
     });
     title.setAttribute("rotation", {
@@ -32,14 +34,15 @@ AFRAME.registerComponent("slide-text", {
     });
     title.setAttribute("position", {
       x: 0,
-      y: 0.35,
+      y: 0.45,
       z: 0,
     });
     el.appendChild(title);
     const firstPoint = document.createElement("a-entity");
     firstPoint.setAttribute("text", {
       value: this.data.firstPoint,
-      width: 2,
+      width: 1.8,
+      font: "https://cdn.aframe.io/fonts/DejaVu-sdf.fnt",
       align: "center",
     });
     firstPoint.setAttribute("rotation", {
@@ -56,7 +59,8 @@ AFRAME.registerComponent("slide-text", {
     const secondPoint = document.createElement("a-entity");
     secondPoint.setAttribute("text", {
       value: this.data.secondPoint,
-      width: 2,
+      font: "https://cdn.aframe.io/fonts/DejaVu-sdf.fnt",
+      width: 1.8,
       align: "center",
     });
     secondPoint.setAttribute("rotation", {
@@ -73,7 +77,8 @@ AFRAME.registerComponent("slide-text", {
     const thirdPoint = document.createElement("a-entity");
     thirdPoint.setAttribute("text", {
       value: this.data.thirdPoint,
-      width: 2,
+      width: 1.8,
+      font: "https://cdn.aframe.io/fonts/DejaVu-sdf.fnt",
       align: "center",
     });
     thirdPoint.setAttribute("rotation", {
