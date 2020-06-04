@@ -9,6 +9,14 @@ function mod(n, m) {
   return (((n % m) + m) % m).toFixed(3);
 }
 
+function convert_radians_to_num_rotation(phi) {
+  const half_pi = Math.PI / 2;
+  phi = phi.toFixed(3);
+  phi = mod(phi, 2 * Math.PI);
+  const num_rotation = Math.round(phi / half_pi);
+  return num_rotation;
+}
+
 AFRAME.registerComponent("dice-manager", {
   schema: {
     total_dices: {
@@ -46,13 +54,8 @@ AFRAME.registerComponent("dice-manager", {
     });
   },
   getDiceFace: function (x, z) {
-    const half_pi = Math.PI / 2;
-    x = x.toFixed(3);
-    z = z.toFixed(3);
-    x = mod(x, 2 * Math.PI);
-    z = mod(z, 2 * Math.PI);
-    x = Math.round(x / half_pi);
-    z = Math.round(z / half_pi);
-    return FACE_ROTATION_TABLE[z][x];
+    const x_num_rotation = convert_radians_to_num_rotation(x);
+    const z_num_rotation = convert_radians_to_num_rotation(z);
+    return FACE_ROTATION_TABLE[z_num_rotation][x_num_rotation];
   },
 });
