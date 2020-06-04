@@ -4,6 +4,7 @@ const FACE_ROTATION_TABLE = [
   [4, 6, 3, 5],
   [2, 6, 1, 5],
 ];
+const PROCESS_DICE_DELAY = 4000;
 
 function mod(n, m) {
   return (((n % m) + m) % m).toFixed(3);
@@ -32,14 +33,6 @@ AFRAME.registerComponent("dice-manager", {
     const diceManager = this;
     const el = this.el;
     const sceneEl = this.el.sceneEl;
-    this.diceResults = {
-      1: 0,
-      2: 0,
-      3: 0,
-      4: 0,
-      5: 0,
-      6: 0,
-    };
     this.el.sceneEl.addEventListener("throwDice", function (e) {
       const { num_dices } = e.detail;
       for (var i = 0; i < num_dices; i++) {
@@ -56,19 +49,26 @@ AFRAME.registerComponent("dice-manager", {
         Number(el.getAttribute("total_dices")) + Number(num_dices);
       el.setAttribute("total_dices", new_total_dices);
       setTimeout(() => {
-        const elementsToAdd = sceneEl.querySelectorAll(`.dice`);
-        elementsToAdd.forEach((d) => {
+        const diceResults = {
+          1: 0,
+          2: 0,
+          3: 0,
+          4: 0,
+          5: 0,
+          6: 0,
+          total: 0,
+        };
+        const dices = sceneEl.querySelectorAll(`.dice`);
+        dices.forEach((d) => {
           const { x, z } = d.object3D.rotation;
           const face = diceManager.getDiceFace(x, z) || 3;
-          diceManager.diceResults[face] += 1;
+          diceResults[face] += 1;
+          diceResults["total"] += 1;
         });
-        el.setAttribute(
-          "dice_results",
-          JSON.stringify(diceManager.diceResults)
-        );
+        el.setAttribute("dice_results", JSON.stringify(diceResults));
         const dice_results = el.getAttribute("dice_results");
         el.emit("update-results", { dice_results });
-      }, 4000);
+      }, PROCESS_DICE_DELAY);
     });
   },
   getDiceFace: function (x, z) {

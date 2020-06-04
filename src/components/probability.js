@@ -18,7 +18,7 @@ AFRAME.registerComponent("probability", {
     // Card for results
     const resultsEl = document.createElement("a-entity");
     resultsEl.setAttribute("card", {
-      text: "Results\n\n1:0\n2:0\n3:0\n4:0\n5:0\n6:0",
+      text: "Results\n\n1:0\n2:0\n3:0\n4:0\n5:0\n6:0\nTotal:0",
       pos_x: -4.5,
       pos_y: 0.3,
       rot_x: -15,
