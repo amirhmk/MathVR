@@ -24,6 +24,13 @@ AFRAME.registerComponent("probability", {
       z: 0,
     });
     resultsEl.setAttribute("class", "probabilityRender");
+    this.el.sceneEl.addEventListener("update-results", function (e) {
+      const { dice_results } = e.detail;
+      console.log("Updated Results", dice_results);
+      resultsEl.setAttribute("card", {
+        text: dice_results,
+      });
+    });
 
     // Card for dice throwing options
     const settingEl = document.createElement("a-entity");

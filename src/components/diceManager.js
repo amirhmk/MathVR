@@ -23,11 +23,23 @@ AFRAME.registerComponent("dice-manager", {
       type: "number",
       default: 0,
     },
+    dice_results: {
+      type: "string",
+      default: " of course",
+    },
   },
   init: function () {
     const diceManager = this;
     const el = this.el;
     const sceneEl = this.el.sceneEl;
+    this.diceResults = {
+      1: 0,
+      2: 0,
+      3: 0,
+      4: 0,
+      5: 0,
+      6: 0,
+    };
     this.el.sceneEl.addEventListener("throwDice", function (e) {
       const { num_dices } = e.detail;
       for (var i = 0; i < num_dices; i++) {
@@ -46,10 +58,16 @@ AFRAME.registerComponent("dice-manager", {
       setTimeout(() => {
         const elementsToAdd = sceneEl.querySelectorAll(`.dice`);
         elementsToAdd.forEach((d) => {
-          let { x, z } = d.object3D.rotation;
+          const { x, z } = d.object3D.rotation;
           const face = diceManager.getDiceFace(x, z);
-          console.log("FACE", face);
+          diceManager.diceResults[face] += 1;
         });
+        el.setAttribute(
+          "dice_results",
+          JSON.stringify(diceManager.diceResults)
+        );
+        const dice_results = el.getAttribute("dice_results");
+        el.emit("update-results", { dice_results });
       }, 4000);
     });
   },
