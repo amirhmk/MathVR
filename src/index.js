@@ -1,4 +1,5 @@
 // Packages
+require("regenerator-runtime/runtime");
 import "aframe-environment-component";
 
 // componenents

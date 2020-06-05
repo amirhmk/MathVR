@@ -1,3 +1,5 @@
+import { wait } from "../utils";
+
 const FACE_ROTATION_TABLE = [
   [3, 6, 4, 5],
   [1, 6, 2, 5],
@@ -33,7 +35,7 @@ AFRAME.registerComponent("dice-manager", {
     const diceManager = this;
     const el = this.el;
     const sceneEl = this.el.sceneEl;
-    this.el.sceneEl.addEventListener("throwDice", function (e) {
+    this.el.sceneEl.addEventListener("throwDice", async function (e) {
       const { num_dices } = e.detail;
       for (var i = 0; i < num_dices; i++) {
         const diceEl = document.createElement("a-entity");
@@ -48,27 +50,26 @@ AFRAME.registerComponent("dice-manager", {
       const new_total_dices =
         Number(el.getAttribute("total_dices")) + Number(num_dices);
       el.setAttribute("total_dices", new_total_dices);
-      setTimeout(() => {
-        const diceResults = {
-          1: 0,
-          2: 0,
-          3: 0,
-          4: 0,
-          5: 0,
-          6: 0,
-          total: 0,
-        };
-        const dices = sceneEl.querySelectorAll(`.dice`);
-        dices.forEach((d) => {
-          const { x, z } = d.object3D.rotation;
-          const face = diceManager.getDiceFace(x, z) || 3;
-          diceResults[face] += 1;
-          diceResults["total"] += 1;
-        });
-        el.setAttribute("dice_results", JSON.stringify(diceResults));
-        const dice_results = el.getAttribute("dice_results");
-        el.emit("update-results", { dice_results });
-      }, PROCESS_DICE_DELAY);
+      await wait(PROCESS_DICE_DELAY);
+      const diceResults = {
+        1: 0,
+        2: 0,
+        3: 0,
+        4: 0,
+        5: 0,
+        6: 0,
+        total: 0,
+      };
+      const dices = sceneEl.querySelectorAll(`.dice`);
+      dices.forEach((d) => {
+        const { x, z } = d.object3D.rotation;
+        const face = diceManager.getDiceFace(x, z) || 3;
+        diceResults[face] += 1;
+        diceResults["total"] += 1;
+      });
+      el.setAttribute("dice_results", JSON.stringify(diceResults));
+      const dice_results = el.getAttribute("dice_results");
+      el.emit("update-results", { dice_results });
     });
   },
   getDiceFace: function (x, z) {
