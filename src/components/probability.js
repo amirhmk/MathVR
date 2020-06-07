@@ -1,4 +1,4 @@
-function parse_results(objStr) {
+function parseResults(objStr) {
   objStr = objStr.replace(/[{()}""]/g, "");
   const results = objStr.split(",");
   const parsedString = "Results\n\n".concat(results.join("\n"));
@@ -36,7 +36,7 @@ AFRAME.registerComponent("probability", {
       const { dice_results } = e.detail;
       const resultsTextEl = this.querySelector("#card_text_results");
       resultsTextEl.setAttribute("text", {
-        value: parse_results(dice_results),
+        value: parseResults(dice_results),
       });
     });
 

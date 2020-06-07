@@ -12,7 +12,7 @@ function mod(n, m) {
   return (((n % m) + m) % m).toFixed(2);
 }
 
-function convert_radians_to_num_rotation(phi) {
+function convertRadiansToNumRotation(phi) {
   const half_pi = Math.PI / 2;
   phi = phi.toFixed(2);
   phi = mod(phi, 2 * Math.PI);
@@ -28,7 +28,7 @@ AFRAME.registerComponent("dice-manager", {
     },
     dice_results: {
       type: "string",
-      default: " of course",
+      default: "",
     },
   },
   init: function () {
@@ -75,8 +75,8 @@ AFRAME.registerComponent("dice-manager", {
     });
   },
   getDiceFace: function (x, z) {
-    const x_num_rotation = convert_radians_to_num_rotation(x);
-    const z_num_rotation = convert_radians_to_num_rotation(z);
-    return FACE_ROTATION_TABLE[z_num_rotation][x_num_rotation];
+    const xNumRotation = convertRadiansToNumRotation(x);
+    const zNumRotation = convertRadiansToNumRotation(z);
+    return FACE_ROTATION_TABLE[zNumRotation][xNumRotation];
   },
 });
