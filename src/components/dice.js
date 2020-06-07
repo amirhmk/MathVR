@@ -25,7 +25,10 @@ AFRAME.registerComponent("dice", {
     },
   },
   init: function () {
-    this.el.setAttribute("dynamic-body", "dynamic-body: true");
+    this.el.setAttribute("dynamic-body", {
+      "dynamic-body": true,
+      mass: 30,
+    });
     const geometry = new THREE.BoxGeometry(
       this.data.size,
       this.data.size,

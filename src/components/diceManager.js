@@ -6,18 +6,18 @@ const FACE_ROTATION_TABLE = [
   [4, 6, 3, 5],
   [2, 6, 1, 5],
 ];
-const PROCESS_DICE_DELAY = 4000;
+const PROCESS_DICE_DELAY = 4500;
 
 function mod(n, m) {
-  return (((n % m) + m) % m).toFixed(3);
+  return (((n % m) + m) % m).toFixed(2);
 }
 
 function convert_radians_to_num_rotation(phi) {
   const half_pi = Math.PI / 2;
-  phi = phi.toFixed(3);
+  phi = phi.toFixed(2);
   phi = mod(phi, 2 * Math.PI);
   const num_rotation = Math.round(phi / half_pi);
-  return num_rotation;
+  return num_rotation % 4;
 }
 
 AFRAME.registerComponent("dice-manager", {
@@ -63,9 +63,11 @@ AFRAME.registerComponent("dice-manager", {
       const dices = sceneEl.querySelectorAll(`.dice`);
       dices.forEach((d) => {
         const { x, z } = d.object3D.rotation;
-        const face = diceManager.getDiceFace(x, z) || 3;
+        const face = diceManager.getDiceFace(x, z);
         diceResults[face] += 1;
         diceResults["total"] += 1;
+        d.removeAttribute("dynamic-body");
+        d.setAttribute("static-body", "static-body: true");
       });
       el.setAttribute("dice_results", JSON.stringify(diceResults));
       const dice_results = el.getAttribute("dice_results");
