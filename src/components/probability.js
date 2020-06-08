@@ -8,13 +8,7 @@ function parseResults(objStr) {
 AFRAME.registerComponent("probability", {
   init: function () {
     const el = this.el;
-    // Create title
-    const title = document.createElement("a-entity");
-    title.setAttribute("title", { value: "Probability" });
-    title.setAttribute("class", "probabilityRender");
-    title.setAttribute("position", { x: -3.15, y: 6, z: -8 });
-    title.setAttribute("scale", { x: 0, y: 0, z: 0 });
-    el.appendChild(title);
+
     // Card for results
     const resultsEl = document.createElement("a-entity");
     resultsEl.setAttribute("card", {
@@ -39,7 +33,6 @@ AFRAME.registerComponent("probability", {
         value: parseResults(dice_results),
       });
     });
-
     // Card for dice throwing options
     const settingEl = document.createElement("a-entity");
     // TODO Decide on # of options and code instead of hard-coded
@@ -51,6 +44,7 @@ AFRAME.registerComponent("probability", {
       [-0.7, -0.4, 0.1],
       [0.7, -0.4, 0.1],
     ];
+    settingEl.setAttribute("class", "probability-cards");
     settingEl.setAttribute("card", {
       text: "Throw Dice",
       pos_x: 4.5,
@@ -60,7 +54,6 @@ AFRAME.registerComponent("probability", {
       pos_x_text_offset: -0.1,
       type: "settings",
     });
-    settingEl.setAttribute("class", "probabilityRender");
     settingEl.setAttribute("scale", {
       x: 0,
       y: 0,
@@ -83,6 +76,7 @@ AFRAME.registerComponent("probability", {
       });
       settingEl.appendChild(button);
     }
+
     this.el.appendChild(resultsEl);
     this.el.appendChild(settingEl);
   },

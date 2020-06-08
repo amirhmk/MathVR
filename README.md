@@ -1,4 +1,4 @@
-# MathVR
+# MathVR (In progress)
 
 Using VR to teach mathematics.
 
