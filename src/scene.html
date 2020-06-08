@@ -29,7 +29,14 @@
     <!-- Place holder Ground for Physics engine -->
     <a-box id="physics-ground" position="2 -2.5 -3" color="blue" static-body width="1000" height="1" depth="1000"
       visible="false"></a-box>
-    <a-entity id="probabilty-scene" probability></a-entity>
+    <!-- Probability title -->
+    <a-entity title='value:Probability' position='-3.5 6 -8' scale='0 0 0' class='probabilityRender'
+      id='probability-title'></a-entity>
+    <!-- Probability cards -->
+    <a-entity probability></a-entity>
+    <!-- Probability slides -->
+    <a-entity probability-slides id='probability-slides' class='probabilityRender prob-slides' scale='0 0 0'></a-entity>
+    <!-- Dice animation -->
     <a-entity id="dice-manager" dice-manager></a-entity>
     <!-- Cursor -->
     <a-entity camera look-controls position="0 1.8 0">

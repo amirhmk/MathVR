@@ -13,7 +13,7 @@ AFRAME.registerComponent("dice-manager", {
         const diceEl = document.createElement("a-entity");
         diceEl.setAttribute("class", "dice");
         diceEl.setAttribute("dice", {
-          pos_x: Math.random() * 6 - 3,
+          pos_x: Math.random() * 3 + 1,
           pos_y: Math.random() * 3 + 1,
           pos_z: Math.random() * 3 + -4,
         });
