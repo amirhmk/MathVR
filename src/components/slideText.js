@@ -18,6 +18,7 @@ AFRAME.registerComponent("slide-text", {
     fadeIn: { type: "string", default: "" },
   },
   init: function () {
+    const self = this;
     const el = this.el;
     const title = document.createElement("a-entity");
     title.setAttribute("text", {
@@ -29,7 +30,7 @@ AFRAME.registerComponent("slide-text", {
     });
     title.setAttribute("rotation", {
       x: 0,
-      y: 45,
+      y: 50,
       z: 0,
     });
     title.setAttribute("position", {
@@ -38,60 +39,10 @@ AFRAME.registerComponent("slide-text", {
       z: 0,
     });
     el.appendChild(title);
-    const firstPoint = document.createElement("a-entity");
-    firstPoint.setAttribute("text", {
-      value: this.data.firstPoint,
-      width: 1.8,
-      font: "https://cdn.aframe.io/fonts/DejaVu-sdf.fnt",
-      align: "center",
-    });
-    firstPoint.setAttribute("rotation", {
-      x: 0,
-      y: 45,
-      z: 0,
-    });
-    firstPoint.setAttribute("position", {
-      x: 0,
-      y: 0.1,
-      z: 0,
-    });
-    el.append(firstPoint);
-    const secondPoint = document.createElement("a-entity");
-    secondPoint.setAttribute("text", {
-      value: this.data.secondPoint,
-      font: "https://cdn.aframe.io/fonts/DejaVu-sdf.fnt",
-      width: 1.8,
-      align: "center",
-    });
-    secondPoint.setAttribute("rotation", {
-      x: 0,
-      y: 45,
-      z: 0,
-    });
-    secondPoint.setAttribute("position", {
-      x: 0,
-      y: -0.15,
-      z: 0,
-    });
-    el.append(secondPoint);
-    const thirdPoint = document.createElement("a-entity");
-    thirdPoint.setAttribute("text", {
-      value: this.data.thirdPoint,
-      width: 1.8,
-      font: "https://cdn.aframe.io/fonts/DejaVu-sdf.fnt",
-      align: "center",
-    });
-    thirdPoint.setAttribute("rotation", {
-      x: 0,
-      y: 45,
-      z: 0,
-    });
-    thirdPoint.setAttribute("position", {
-      x: 0,
-      y: -0.4,
-      z: 0,
-    });
-    el.append(thirdPoint);
+    const { firstPoint, secondPoint, thirdPoint } = this.data;
+    const points = [firstPoint, secondPoint, thirdPoint];
+    const positions = [0.1, -0.15, -0.4];
+    self.text(points, positions);
     if (this.data.next) {
       const button = document.createElement("a-entity");
       button.setAttribute("button", {
@@ -138,6 +89,29 @@ AFRAME.registerComponent("slide-text", {
         });
       });
       el.appendChild(button);
+    }
+  },
+  text: function (points, position) {
+    const el = this.el;
+    for (let index = 0; index < points.length; index++) {
+      const point = document.createElement("a-entity");
+      point.setAttribute("text", {
+        value: points[index],
+        width: 1.8,
+        font: "https://cdn.aframe.io/fonts/DejaVu-sdf.fnt",
+        align: "center",
+      });
+      point.setAttribute("rotation", {
+        x: 0,
+        y: 50,
+        z: 0,
+      });
+      point.setAttribute("position", {
+        x: 0,
+        y: position[index],
+        z: 0,
+      });
+      el.append(point);
     }
   },
 });

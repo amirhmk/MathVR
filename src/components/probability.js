@@ -1,4 +1,4 @@
-AFRAME.registerComponent("probability-cards", {
+AFRAME.registerComponent("probability", {
   init: function () {
     const el = this.el;
 

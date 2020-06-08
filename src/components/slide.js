@@ -17,7 +17,6 @@ AFRAME.registerComponent("slide", {
     fadeOut: { type: "string", default: "" },
     fadeIn: { type: "string", default: "" },
   },
-
   init: function () {
     const el = this.el;
     el.setAttribute("geometry", {

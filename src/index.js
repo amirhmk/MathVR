@@ -9,7 +9,7 @@ import "./components/buttonShader";
 import "./components/roundCornerBox";
 import "./components/transition";
 import "./components/text";
-import "./components/probabilityCards";
+import "./components/probability";
 import "./components/dice";
 import "./components/card";
 import "./components/diceManager";

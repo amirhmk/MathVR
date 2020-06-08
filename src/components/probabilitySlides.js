@@ -4,7 +4,7 @@ const slide1 = {
     "Randomness describes an apparent lack of pattern in a chain of events.",
   secondPoint:
     "For example, when throwing a dice, it is nearly impossible to predict the outcome of the throw.",
-  thirdPoint: "Another example, is the trajectory of flyign insects.",
+  thirdPoint: "Another example, is the trajectory of flying insects.",
   next: true,
 };
 const slide2 = {
@@ -12,8 +12,7 @@ const slide2 = {
   firstPoint:
     "Probability is a field of Mathematics that helps us make sense of randomness",
   secondPoint: "It studies how likely an event is to occur or not.",
-  thirdPoint:
-    "Probability is a number between 0 and 1; 0 being the event will almost surely not occur.",
+  thirdPoint: "Probability is a number between 0 and 1.",
   next: true,
 };
 const slide3 = {
