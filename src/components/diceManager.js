@@ -42,7 +42,7 @@ AFRAME.registerComponent("dice-manager", {
         diceEl.setAttribute("class", "dice");
         diceEl.setAttribute("dice", {
           pos_x: Math.random() * 6 - 3,
-          pos_y: Math.random() * 3 + 4,
+          pos_y: Math.random() * 3 + 2,
           pos_z: Math.random() * 3 + -7.5,
         });
         el.appendChild(diceEl);
