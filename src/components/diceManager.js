@@ -67,7 +67,7 @@ AFRAME.registerComponent("dice-manager", {
         diceResults[face] += 1;
         diceResults["total"] += 1;
         d.removeAttribute("dynamic-body");
-        d.setAttribute("static-body");
+        d.setAttribute("static-body", {});
       });
       el.setAttribute("dice_results", JSON.stringify(diceResults));
       const dice_results = el.getAttribute("dice_results");
