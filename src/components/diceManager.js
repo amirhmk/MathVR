@@ -22,20 +22,25 @@ function convertRadiansToNumRotation(phi) {
 
 AFRAME.registerComponent("dice-manager", {
   schema: {
-    total_dices: {
-      type: "number",
-      default: 0,
-    },
     dice_results: {
       type: "string",
       default: "",
     },
   },
   init: function () {
+    const diceResults = {
+      1: 0,
+      2: 0,
+      3: 0,
+      4: 0,
+      5: 0,
+      6: 0,
+      total: 0,
+    };
     const diceManager = this;
     const el = this.el;
-    const sceneEl = this.el.sceneEl;
     this.el.sceneEl.addEventListener("throwDice", async function (e) {
+      const createdDices = [];
       const { num_dices } = e.detail;
       for (var i = 0; i < num_dices; i++) {
         const diceEl = document.createElement("a-entity");
@@ -46,26 +51,14 @@ AFRAME.registerComponent("dice-manager", {
           pos_z: Math.random() * 3 + -7.5,
         });
         el.appendChild(diceEl);
+        createdDices.push(diceEl);
       }
-      const new_total_dices =
-        Number(el.getAttribute("total_dices")) + Number(num_dices);
-      el.setAttribute("total_dices", new_total_dices);
+      diceResults["total"] += Number(num_dices);
       await wait(PROCESS_DICE_DELAY);
-      const diceResults = {
-        1: 0,
-        2: 0,
-        3: 0,
-        4: 0,
-        5: 0,
-        6: 0,
-        total: 0,
-      };
-      const dices = sceneEl.querySelectorAll(`.dice`);
-      dices.forEach((d) => {
+      createdDices.forEach((d) => {
         const { x, z } = d.object3D.rotation;
         const face = diceManager.getDiceFace(x, z);
         diceResults[face] += 1;
-        diceResults["total"] += 1;
         d.removeAttribute("dynamic-body");
         d.setAttribute("static-body", "static-body: true");
       });
