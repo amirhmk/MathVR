@@ -65,13 +65,6 @@ AFRAME.registerComponent("custom-text", {
     el.addEventListener("click", function () {
       el.emit("remove", { text: "hellowordl" });
     });
-    // event listener for mouse-over
-    el.addEventListener("mouseenter", function () {
-      el.setAttribute("text", { color: "blue" });
-    });
-    el.addEventListener("mouseleave", function () {
-      el.setAttribute("text", { color: "white" });
-    });
   },
   remove: function () {
     console.log("bye");
