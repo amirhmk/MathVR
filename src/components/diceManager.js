@@ -6,7 +6,7 @@ const FACE_ROTATION_TABLE = [
   [4, 6, 3, 5],
   [2, 6, 1, 5],
 ];
-const PROCESS_DICE_DELAY = 4500;
+const PROCESS_DICE_DELAY = 3500;
 
 function mod(n, m) {
   return (((n % m) + m) % m).toFixed(2);

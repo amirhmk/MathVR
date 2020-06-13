@@ -1,5 +1,5 @@
 export const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-export function debounce(func, duration) {
+export const debounce = (func, duration) => {
   let timeout;
   return function (...args) {
     const effect = () => {
@@ -9,4 +9,4 @@ export function debounce(func, duration) {
     clearTimeout(timeout);
     timeout = setTimeout(effect, duration);
   };
-}
+};

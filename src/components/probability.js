@@ -74,9 +74,7 @@ AFRAME.registerComponent("probability", {
       button.setAttribute("id", "probability");
       button.addEventListener(
         "click",
-        debounce(function () {
-          el.emit("throwDice", { num_dices });
-        }, 500)
+        debounce(() => el.emit("throwDice", { num_dices }), 250)
       );
       settingEl.appendChild(button);
     }
