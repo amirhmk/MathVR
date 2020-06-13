@@ -17,7 +17,6 @@ AFRAME.registerComponent("transition", {
         to: isVisible ? "1 1 1" : "0 0 0",
         dur: 1000,
         loop: false,
-        visible: isVisible,
       });
     }
   },

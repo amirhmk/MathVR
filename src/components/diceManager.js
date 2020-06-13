@@ -60,7 +60,7 @@ AFRAME.registerComponent("dice-manager", {
         const face = diceManager.getDiceFace(x, z);
         diceResults[face] += 1;
         d.removeAttribute("dynamic-body");
-        d.setAttribute("static-body", "static-body: true");
+        d.setAttribute("static-body", {});
       });
       el.setAttribute("dice_results", JSON.stringify(diceResults));
       const dice_results = el.getAttribute("dice_results");

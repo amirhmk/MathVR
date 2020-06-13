@@ -5,6 +5,13 @@ import logo4 from "../assets/dice/4.png";
 import logo5 from "../assets/dice/5.png";
 import logo6 from "../assets/dice/6.png";
 
+// Load the Faces, only need to do it once
+const textureLoader = new THREE.TextureLoader();
+const FACES = [logo1, logo2, logo3, logo4, logo5, logo6];
+const materials = FACES.map(
+  (f) => new THREE.MeshBasicMaterial({ map: textureLoader.load(f) })
+);
+
 AFRAME.registerComponent("dice", {
   schema: {
     size: {
@@ -26,7 +33,6 @@ AFRAME.registerComponent("dice", {
   },
   init: function () {
     this.el.setAttribute("dynamic-body", {
-      "dynamic-body": true,
       mass: 30,
     });
     const geometry = new THREE.BoxGeometry(
@@ -34,18 +40,7 @@ AFRAME.registerComponent("dice", {
       this.data.size,
       this.data.size
     );
-    const textureLoader = new THREE.TextureLoader();
-
-    const materials = [
-      new THREE.MeshBasicMaterial({ map: textureLoader.load(logo1) }),
-      new THREE.MeshBasicMaterial({ map: textureLoader.load(logo2) }),
-      new THREE.MeshBasicMaterial({ map: textureLoader.load(logo3) }),
-      new THREE.MeshBasicMaterial({ map: textureLoader.load(logo4) }),
-      new THREE.MeshBasicMaterial({ map: textureLoader.load(logo5) }),
-      new THREE.MeshBasicMaterial({ map: textureLoader.load(logo6) }),
-    ];
-    const faceMaterial = new THREE.MeshFaceMaterial(materials);
-    const mesh = new THREE.Mesh(geometry, faceMaterial);
+    const mesh = new THREE.Mesh(geometry, materials);
     this.el.setObject3D("geometry", mesh);
 
     this.el.setAttribute("position", {
