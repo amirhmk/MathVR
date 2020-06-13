@@ -62,7 +62,7 @@ AFRAME.registerComponent("card", {
       height: 2,
     });
     el.setAttribute("material", {
-      color: "blue",
+      color: "#8aa168",
     });
     this.el.setAttribute("position", {
       x: pos_x,

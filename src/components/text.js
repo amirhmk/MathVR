@@ -49,6 +49,7 @@ AFRAME.registerComponent("custom-text", {
     });
     el.setAttribute("text", {
       value: this.data.value,
+      font: "https://cdn.aframe.io/fonts/mozillavr.fnt",
       width: 4,
     });
     el.setAttribute("position", {
