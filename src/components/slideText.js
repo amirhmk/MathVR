@@ -51,7 +51,7 @@ AFRAME.registerComponent("slide-text", {
         width: 0.5,
         textWidth: 1.5,
         colorPrimary: "#7BC1F4",
-        colorSecondary: "#CEFFA2 ",
+        colorSecondary: "#CDFFA2",
       });
       button.setAttribute("position", {
         y: -0.65,
