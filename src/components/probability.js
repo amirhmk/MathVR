@@ -25,7 +25,7 @@ AFRAME.registerComponent("probability", {
       y: 0,
       z: 0,
     });
-    resultsEl.setAttribute("class", "probabilityRender");
+    resultsEl.setAttribute("class", "probability-cards");
     this.el.sceneEl.addEventListener("update-results", function (e) {
       const { dice_results } = e.detail;
       const resultsTextEl = this.querySelector("#card_text_results");
