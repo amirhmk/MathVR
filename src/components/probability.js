@@ -1,10 +1,11 @@
+import { debounce } from "../utils";
+
 function parseResults(objStr) {
   objStr = objStr.replace(/[{()}""]/g, "");
   const results = objStr.split(",");
   const parsedString = "Results\n\n".concat(results.join("\n"));
   return parsedString;
 }
-
 AFRAME.registerComponent("probability", {
   init: function () {
     const el = this.el;
@@ -71,9 +72,10 @@ AFRAME.registerComponent("probability", {
       idx += 1;
       button.setAttribute("class", "clickable");
       button.setAttribute("id", "probability");
-      button.addEventListener("click", function () {
-        el.emit("throwDice", { num_dices });
-      });
+      button.addEventListener(
+        "click",
+        debounce(() => el.emit("throwDice", { num_dices }), 250)
+      );
       settingEl.appendChild(button);
     }
 
