@@ -1,5 +1,3 @@
-import blackBoard from "../assets/mathboard.jpg";
-
 AFRAME.registerComponent("welcome", {
   init: function () {
     this.el.setAttribute("geometry", {
@@ -13,7 +11,7 @@ AFRAME.registerComponent("welcome", {
     this.el.setAttribute("material", {
       side: "double",
       shader: "flat",
-      src: blackBoard,
+      src: "#blackboard",
     });
     this.el.setAttribute("position", {
       x: 0,
