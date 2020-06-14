@@ -16,6 +16,6 @@ ehthumbs.db
 Thumbs.db
 
 # build 
-docs/*
-!docs/assets
-!docs/index.html
+# docs/*
+# !docs/assets
+# !docs/index.html
