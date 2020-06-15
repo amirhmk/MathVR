@@ -70,7 +70,6 @@ AFRAME.registerComponent("probability", {
         z: positions[idx][2],
       });
       idx += 1;
-      button.setAttribute("class", "clickable");
       button.setAttribute("id", "probability");
       button.addEventListener(
         "click",
@@ -81,6 +80,22 @@ AFRAME.registerComponent("probability", {
 
     this.el.appendChild(resultsEl);
     this.el.appendChild(settingEl);
+    //   const conclusionButton = document.createElement("a-entity");
+    //   conclusionButton.setAttribute("button", {
+    //     value: "Conclusion",
+    //     height: 0.36,
+    //     class: "probability-cards",
+    //     colorPrimary: "#7BC1F4",
+    //     colorSecondary: "#CEFFA2",
+    //     borderRadius: 0.86,
+    //   });
+    //   conclusionButton.setAttribute("position", {
+    //     x: 2.6,
+    //     y: 3.6,
+    //     z: -3,
+    //   });
+    //   conclusionButton.setAttribute("scale", { x: 0, y: 0, z: 0 });
+    //   this.el.appendChild(conclusionButton);
   },
   remove: function () {
     console.log("bye prob");
