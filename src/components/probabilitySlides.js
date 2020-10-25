@@ -31,8 +31,8 @@ const slide4 = {
   firstPoint:
     "The uniform distribution describes a system where each event has the same probability.",
   secondPoint:
-    "In the case of a 6 sided dice, there 6 different possible outcomes after a throw.",
-  thirdPoint: "Each face would have a probability of occuring equal to 1/6.",
+    "In the case of a 6-sided dice, there are 6 different possible outcomes after a throw.",
+  thirdPoint: "Each face would have a probability of occurring equal to 1/6.",
   next: false,
   fadeOut: "prob-slides",
   fadeIn: "probability-cards",
