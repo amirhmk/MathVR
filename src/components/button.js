@@ -7,6 +7,7 @@ AFRAME.registerComponent("button", {
     borderRadius: { type: "number", default: 0 },
     colorPrimary: { type: "string", default: "#8f3d3d" },
     colorSecondary: { type: "string", default: "#2cc0f2" },
+    class: { type: "string", default: "" },
   },
   init: function () {
     const el = this.el;
@@ -39,7 +40,7 @@ AFRAME.registerComponent("button", {
       align: "center",
       width: textWidth,
     });
-    el.setAttribute("class", "clickable");
+    el.setAttribute("class", `${this.data.class} clickable`);
     el.addEventListener("mouseenter", function () {
       el.setAttribute("geometry", {
         width: width * 1.075,

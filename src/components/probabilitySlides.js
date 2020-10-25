@@ -18,10 +18,11 @@ const slide2 = {
 const slide3 = {
   title: "Dice Throwing Experiment",
   firstPoint:
-    "To illustrate our previous points, we will run a random experiment.",
+    "To illustrate our previous points, we will run a dice throwing experiment.",
   secondPoint:
-    "We will throw dice and observe how the outcomes converge to a uniform distibution.",
-  thirdPoint: 'Press "Animation" to get started',
+    "You will notice that the proportion of dice for each face is the same.",
+  thirdPoint:
+    "This is a result known as the Law of Large Numbers. Experimental results converge to theoretical ones.",
   next: false,
   fadeOut: "prob-slides",
   fadeIn: "probability-cards",

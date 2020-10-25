@@ -70,7 +70,6 @@ AFRAME.registerComponent("probability", {
         z: positions[idx][2],
       });
       idx += 1;
-      button.setAttribute("class", "clickable");
       button.setAttribute("id", "probability");
       button.addEventListener(
         "click",
