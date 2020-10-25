@@ -23,12 +23,22 @@ const slide3 = {
     "You will notice that the proportion of dice for each face is the same.",
   thirdPoint:
     "This is a result known as the Law of Large Numbers. Experimental results converge to theoretical ones.",
+  next: true,
+};
+
+const slide4 = {
+  title: "Uniform distribution",
+  firstPoint:
+    "The uniform distribution describes a system where each event has the same probability.",
+  secondPoint:
+    "In the case of a 6 sided dice, there 6 different possible outcomes after a throw.",
+  thirdPoint: "Each face would have a probability of occuring equal to 1/6.",
   next: false,
   fadeOut: "prob-slides",
   fadeIn: "probability-cards",
 };
 
-const slides = [slide1, slide2, slide3];
+const slides = [slide1, slide2, slide3, slide4];
 AFRAME.registerComponent("probability-slides", {
   init: function () {
     const self = this;
