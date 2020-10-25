@@ -4,7 +4,7 @@ const slide1 = {
     "Randomness describes an apparent lack of pattern in a chain of events.",
   secondPoint:
     "For example, when throwing a dice, it is nearly impossible to predict the outcome of the throw.",
-  thirdPoint: "Another example, is the trajectory of flying insects.",
+  thirdPoint: "Another example is the trajectory of flying insects.",
   next: true,
 };
 const slide2 = {
