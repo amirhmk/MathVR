@@ -21,10 +21,10 @@ Requirements:
 
 ### Installation
 
-First install dependencies:
+First install the dependencies:
 
 ```shell
-npm install
+$ npm install
 ```
 
 ### Run
@@ -32,8 +32,10 @@ npm install
 To run locally:
 
 ```shell
-npm start
+$ npm start
 ```
+
+Local instance will be served on `localhost:9000`
 
 ## Link
 
