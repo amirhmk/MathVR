@@ -3,7 +3,7 @@ AFRAME.registerComponent("slide-text", {
     title: { type: "string", default: "What is probability?" },
     firstPoint: {
       type: "string",
-      default: "math is amazing, whatever i just need a longer sentence",
+      default: "math is amazing, whatever I just need a longer sentence",
     },
     secondPoint: {
       type: "string",
