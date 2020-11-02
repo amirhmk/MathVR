@@ -1,6 +1,6 @@
 name: GH Pages CD
 
-on: 
+on:
   push:
     branches: [master]
   workflow_dispatch:
@@ -26,4 +26,5 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages # The branch the action should deploy to.
           FOLDER: docs # The folder the action should deploy.
+          PRESERVE: true
           CLEAN: true
