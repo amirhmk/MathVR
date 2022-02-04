@@ -4,6 +4,12 @@
 
 # Learn mathematics through interactive VR experiments
 
+## Link
+
+This project is [live on GitHub Pages](https://amirhmk.github.io/MathVR/)
+
+**Note**: To enter 360 VR mode, click the `VR` button on the bottom right hand side!
+
 ## About
 
 Math topics can be challenging to grasp sometimes, and [@quentinv72](https://github.com/quentinv72) and I thought demonstrating them in interactive experiments in a VR environment could help with that. As a first step, we wanted to use **random experiments** to illustrate Law of Large Numbers with a whole lot of dice falling down from the sky.
@@ -36,9 +42,3 @@ $ npm start
 ```
 
 Local instance will be served on `localhost:9000`
-
-## Link
-
-This project is [live on GitHub Pages](https://amirhmk.github.io/MathVR/)
-
-**Note**: To enter 360 VR mode, click the `VR` button on the bottom right hand side!
